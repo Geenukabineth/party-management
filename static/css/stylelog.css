@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, rgb(3, 37, 126), rgb(58, 123, 255));
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 35px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 64, 239, 0.2);
+}
+
+.container .title {
+  color: rgb(0, 37, 156);
+  font-size: 26px;
+  font-weight: 600;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 4px;
+  width: 40px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgb(0, 64, 239), rgb(58, 123, 255));
+}
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px 0 15px 0;
+}
+
+form .user-details .input-box {
+  margin-bottom: 20px;
+  width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: rgb(0, 37, 156);
+}
+
+.user-details .input-box input {
+  height: 48px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 6px;
+  padding-left: 15px;
+  border: 1px solid #bbb;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: rgb(0, 64, 239);
+  box-shadow: 0 0 10px rgba(0, 64, 239, 0.1);
+}
+
+form .category {
+  display: flex;
+  width: 80%;
+  margin: 20px 0;
+  justify-content: space-between;
+}
+
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+form .category label .dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-right: 12px;
+  background: #e0e0e0;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+form .button {
+  height: 50px;
+  margin: 40px 0;
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgb(0, 64, 239), rgb(58, 123, 255));
+}
+
+form .button input:hover {
+  background: linear-gradient(-135deg, rgb(0, 37, 156), rgb(0, 64, 239));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 64, 239, 0.3);
+}
+
+@media(max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  form .category {
+    width: 100%;
+  }
+
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+@media(max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}

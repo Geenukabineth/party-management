@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Event Booking
+{% endblock %}
+
+{% block content %}
+<div class="container booking-section py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="booking-form-wrapper p-4 rounded-3 shadow-sm">
+                <h1 class="mb-4 booking-title">Book Your Events</h1>
+                <form action="" method="POST" class="booking-form">
+                    {% csrf_token %}
+
+                    <div class="form-group mb-3">
+                        {% for field in form %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 booking-button">
+                        Book Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.booking-section {
+    background: linear-gradient(135deg, rgba(244, 23, 200, 0.1), rgba(244, 23, 200, 0.03));
+}
+
+.booking-form-wrapper {
+    background-color: white;
+    border: 1px solid rgba(244, 23, 200, 0.2);
+}
+
+.booking-title {
+    color: rgb(244, 23, 200);
+    font-weight: 600;
+}
+
+.booking-button {
+    background-color: rgb(244, 23, 200);
+    border-color: rgb(244, 23, 200);
+    transition: all 0.3s ease;
+}
+
+.booking-button:hover {
+    background-color: rgb(220, 20, 180);
+    transform: translateY(-2px);
+}
+
+.form-control:focus {
+    border-color: rgba(244, 23, 200, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(244, 23, 200, 0.1);
+}
+</style>
+{% endblock %}
